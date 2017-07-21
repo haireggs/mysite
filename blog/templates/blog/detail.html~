@@ -1,0 +1,68 @@
+{% extends "blog/base.html" %}
+{% load markdown_deux_tags %}
+{% block title %} blog:{{blog.blog_title}} {% endblock %}
+{% block content %}
+
+ 
+<div class="row card">
+ 	<div class="card col-sm-8">
+	
+				<h3 class="text-center">{{blog.blog_title}}</h3>
+				<h5 class="text-right">{{blog.pub_date}}</h5>
+				<br />
+				{% if blog.blog_img %}
+					<div class="text-center">
+						<img class="img-responsive" src="/media/{{blog.blog_img}}" alt='图片' />
+					</div>   	
+				{% endif %}
+				
+				<br />
+				<p>{% include blog.blog_text %}</p>
+				
+				
+				
+				
+				
+				
+				<form  action="{%url 'detail' blog.id%}" method="post">
+				<div class="text-right">
+				{%csrf_token%}
+				<p >({{blog.blog_praise}} <span class="glyphicon glyphicon-thumbs-up"></span> )</p>
+				<input  type="submit" name ="praise" value="赞">				
+				</div>
+				</form>
+				
+				</div>		
+			
+				
+
+				<div class="card col-sm-4 ">	
+				<h3>评论</h3>
+				<form method='post'>
+				<div class="form-group">				
+				{{ct}}
+				</div>
+				<input type="submit" value="发表"/>
+				</form>
+				<br>
+				{% for comment in blog.comment_set.all %}
+				
+					
+						<p>{{comment.comment_text}}</p>						
+						<h5 class="text-right">{{comment.pub_date}}</h5>	
+			       	<br>
+								
+				
+				{% endfor %}
+			
+				</div>
+</div>	
+
+{% endblock %}
+
+
+
+
+
+
+

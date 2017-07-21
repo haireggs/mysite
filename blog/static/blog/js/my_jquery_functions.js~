@@ -1,0 +1,48 @@
+
+(function ($) {
+
+	$.fn.extend({
+		ripple:function(){
+
+			return this.each(function(){
+				var me=$(this);
+								//nav.css("color","red");
+				me.on("mousedown",function(e) {
+					var x=e.pageX,
+						y=e.pageY;
+
+					x=x-me.offset().left;
+					y=y-me.offset().top;
+
+					console.log(x,y);
+
+					var ripple=$("<span class='ripple'></span>");
+
+					ripple.css({
+						left:x-2,
+						top:y-2
+					});
+
+					me.append(ripple);
+
+					ripple.on("animationend",function(){
+							ripple.remove();
+						}
+					);
+				});
+
+				
+			});
+		}
+	});
+	
+
+	
+})(jQuery);
+
+$("document").ready(function(){
+	$("body").css("background-color","red");
+	$(".nav").ripple();
+	console.log("end");
+});
+

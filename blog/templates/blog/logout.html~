@@ -1,0 +1,10 @@
+{% extends "blog/base.html" %}
+{% load markdown_deux_tags %}
+{% block title %} 添加新博文{% endblock %}
+{% block content %}
+
+<h3  class="title">您已退出登陆!</h3>
+
+{% endblock %}
+
+

@@ -1,0 +1,731 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/dk/react-apps/memos-master/app/index.html",
+			"settings":
+			{
+				"buffer_size": 363,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/dk/react-apps/memos-master/app/routes/AllMemosRoute.jsx",
+			"settings":
+			{
+				"buffer_size": 1880,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "import React, { Component } from 'react';\nimport { findDOMNode } from 'react-dom';\nimport { Button, Input } from 'antd';\nimport PropTypes from 'prop-types';\n/*\n * @class Header `头`组件\n */\nclass Header extends Component {\n    constructor(props) {\n        super(props);\n        /*\n        *  hidden,hint属性判断用户输入空字符\n        */\n        this.state = {\n            hidden: true,\n            hint: '',\n        };\n        this.handleKeyUp = this.handleKeyUp.bind(this);\n    }\n    /*\n     * @method  handleKeyUp 响应键盘事件\n     */\n    handleKeyUp(e) {\n        if (e.keyCode !== '13') {\n            this.setState({ hidden: true });\n        }\n    }\n    /*\n     * @method  handleSearch 搜索\n     */\n    handleSearch(e) {\n        e.preventDefault();\n        const inputNode = findDOMNode(this.refs.inputnew);\n        const text = inputNode.value.trim();\n        this.props.onSearch(text);\n        inputNode.value = '';\n    }\n    /*\n     * @method  handleClick 添加新事项并对输入字符做出判断\n     */\n    handleClick(e) {\n        e.preventDefault();\n        const inputNode = findDOMNode(this.refs.inputnew);\n        const text = inputNode.value.trim();\n        if (text.length > 20) {\n            this.setState({ hidden: false });\n            this.setState({ hint: '请输入20字以内' });\n        } else if (text !== '') {\n            this.props.onAdd(text);\n            this.setState({ hidden:\n            、\n             true });\n        } else {\n            this.setState({ hint: '请输入内容' });\n            this.setState({ hidden: false });\n        }\n        inputNode.value = '';\n    }\n    render() {\n        return (\n            <header>\n                <section>\n                    <form onSubmit={e => this.handleClick(e)}>\n                        <label htmlFor=\"new-todo\">备忘啊</label>\n                        <Input\n                            onKeyUp={this.handleKeyUp}\n                            ref=\"inputnew\"\n                            type=\"text\"\n                            placeholder=\"新建事项(20字以内)\"\n                            defaultValue={this.props.text}\n                            id=\"new-todo\"\n                            style={{\n                                width: '40%',\n                            }}\n                        />\n                        <div>\n                            <Button\n                                type=\"default\"\n                                ghost\n                                onClick={e => this.handleClick(e)}\n                            >添加</Button>\n                            <Button\n                                type=\"default\"\n                                ghost\n                                icon=\"search\"\n                                onClick={e => this.handleSearch(e)}\n                            >搜索</Button>\n                        </div>\n                    </form>\n                </section>\n                <div\n                    className=\"hint\"\n                    style={{\n                        display: this.state.hidden\n                        ? 'none'\n                        : 'inline-block',\n                    }}\n                >\n                    <div className=\"test\">\n                        <span className=\"bot\" />\n                        <span className=\"top\" />\n                    </div>\n                    <div>\n                        {this.state.hint}\n                    </div>\n                </div>\n            </header>\n        );\n    }\n}\nHeader.propTypes = {\n    onAdd: PropTypes.func.isRequired,\n    onSearch: PropTypes.func.isRequired,\n};\nexport default Header;\n",
+			"file": "/home/dk/react-apps/memos-master/app/components/Header/index.jsx",
+			"file_size": 3635,
+			"file_write_time": 131426180738240030,
+			"settings":
+			{
+				"buffer_size": 3538,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/dk/react-apps/antd-demo/index.js",
+			"settings":
+			{
+				"buffer_size": 649,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/dk/react-apps/antd-demo/dist/index.css",
+			"settings":
+			{
+				"buffer_size": 108167,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/dk/react-apps/memos-master/app/main.jsx",
+			"settings":
+			{
+				"buffer_size": 999,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/dk/react-apps/memos-master/app/components/Navigation/index.jsx",
+			"settings":
+			{
+				"buffer_size": 1375,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/dk/react-apps/memos-master/webpack.config.js",
+			"settings":
+			{
+				"buffer_size": 1216,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/home/dk/react-apps/redux-master/examples/counter/src/index.js",
+			"settings":
+			{
+				"buffer_size": 508,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/dk/react-apps/redux-master/examples/counter/src/components/Counter.js",
+			"settings":
+			{
+				"buffer_size": 1000,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 116.0,
+		"last_filter": "install",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Packge Control:Install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: In",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 485.0
+	},
+	"console":
+	{
+		"height": 160.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/dk/react-apps/memos-master/app",
+		"/home/dk/react-apps/memos-master/app/actions",
+		"/home/dk/react-apps/memos-master/app/components",
+		"/home/dk/react-apps/memos-master/app/components/Header",
+		"/home/dk/react-apps/memos-master/app/components/ListDoingMemos",
+		"/home/dk/react-apps/memos-master/app/components/ListDoneMemos",
+		"/home/dk/react-apps/memos-master/app/components/ListTodoMemos",
+		"/home/dk/react-apps/memos-master/app/components/Navigation",
+		"/home/dk/react-apps/memos-master/app/container",
+		"/home/dk/react-apps/memos-master/app/reducers",
+		"/home/dk/react-apps/memos-master/app/routes",
+		"/home/dk/react-apps/memos-master/app/static",
+		"/home/dk/react-apps/memos-master/app/static/css",
+		"/home/dk/react-apps/memos-master/app/stores",
+		"/home/dk/react-apps/antd-demo",
+		"/home/dk/react-apps/antd-demo/dist"
+	],
+	"file_history":
+	[
+		"/home/dk/react-apps/memos-master/app/container/App.less",
+		"/home/dk/react-apps/react-demo-master/todoMvc/todoMvc-4step (我的)/src/components/TodoItem.js",
+		"/home/dk/react-apps/react-demo-master/todoMvc/todoMvc-4step/src/components/TodoItem.js",
+		"/home/dk/react-apps/react-demo-master/todoMvc/todoMvc-4step/src/components/TodoFooter.js",
+		"/home/dk/react-apps/react-demo-master/todoMvc/todoMvc-4step/src/components/TodoHeader.js",
+		"/home/dk/react-apps/react-demo-master/todoMvc/todoMvc-4stepmy/src/components/TodoHeader.js",
+		"/home/dk/react-apps/react-demo-master/todoMvc/todoMvc-4stepmy/src/components/TodoFooter.js",
+		"/home/dk/react-apps/react-demo-master/todoMvc/todoMvc-4stepmy/src/styles/main.styl",
+		"/home/dk/react-apps/react-demo-master/todoMvc/todoMvc-4stepmy/src/components/Login.js",
+		"/home/dk/react-apps/react-demo-master/todoMvc/todoMvc-4stepmy/src/components/TodoItem.js",
+		"/home/dk/react-apps/react-demo-master/todoMvc/todoMvc-4stepmy/src/components/TodoMain.js",
+		"/home/dk/react-apps/react-demo-master/todoMvc/todoMvc-4step/src/components/TodoMain.js",
+		"/home/dk/react-apps/react-demo-master/todoMvc/todoMvc-4step/src/components/app.js",
+		"/home/dk/react-apps/react-demo-master/todoMvc/todoMvc-4stepmy/src/components/app.js",
+		"/home/dk/react-apps/react-demo-master/todoMvc/todoMvc-4stepmy/src/entry.js",
+		"/home/dk/react-apps/react-demo-master/todoMvc/todoMvc-4step (我的)/src/components/app.js",
+		"/home/dk/react-apps/react-demo-master/todoMvc/todoMvc-4stepmy/webpack.config.js",
+		"/home/dk/react-apps/react-router-tutorial-master/lessons/01-setting-up/modules/App.js",
+		"/home/dk/react-apps/react-router-tutorial-master/lessons/02-rendering-a-route/index.js",
+		"/home/dk/react-apps/react-router-tutorial-master/lessons/02-rendering-a-route/modules/About.js",
+		"/home/dk/react-apps/react-router-tutorial-master/lessons/03-navigating-with-link/modules/App.js",
+		"/home/dk/react-apps/react-router-tutorial-master/lessons/04-nested-routes/modules/App.js",
+		"/home/dk/react-apps/react-router-tutorial-master/lessons/06-params/modules/Repo.js",
+		"/home/dk/react-apps/react-router-tutorial-master/lessons/06-params/index.js",
+		"/home/dk/react-apps/react-router-tutorial-master/lessons/07-more-nesting/index.js",
+		"/home/dk/react-apps/react-router-tutorial-master/lessons/07-more-nesting/modules/Repos.js",
+		"/home/dk/react-apps/react-router-tutorial-master/lessons/08-index-routes/modules/Home.js",
+		"/home/dk/react-apps/react-router-tutorial-master/lessons/08-index-routes/modules/App.js",
+		"/home/dk/react-apps/react-router-tutorial-master/lessons/09-index-links/modules/App.js",
+		"/home/dk/react-apps/react-router-tutorial-master/lessons/10-clean-urls/index.js",
+		"/home/dk/react-apps/react-router-tutorial-master/lessons/10-clean-urls/index.html",
+		"/home/dk/react-apps/react-router-tutorial-master/lessons/11-productionish-server/package.json",
+		"/home/dk/react-apps/react-router-tutorial-master/lessons/11-productionish-server/webpack.config.js",
+		"/home/dk/react-apps/react-router-tutorial-master/lessons/11-productionish-server/server.js",
+		"/home/dk/react-apps/react-router-tutorial-master/lessons/12-navigating/modules/Repos.js",
+		"/home/dk/react-apps/extremely-simple-flux-demo/index.jsx",
+		"/home/dk/react-apps/redux-master/examples/counter/src/components/Counter.spec.js",
+		"/home/dk/react-apps/redux-master/examples/counter/src/components/Counter.js",
+		"/home/dk/react-apps/simplest-redux-example-master/index.js",
+		"/home/dk/react-apps/react-pxq-master/webpack.config.dev.js",
+		"/home/dk/react-apps/react-router-tutorial-master/lessons/11-productionish-server/index.css",
+		"/home/dk/react-apps/react-router-tutorial-master/lessons/10-clean-urls/package.json",
+		"/home/dk/react-apps/react-router-tutorial-master/lessons/08-index-routes/index.js",
+		"/home/dk/react-apps/react-router-tutorial-master/lessons/07-more-nesting/modules/Repo.js",
+		"/home/dk/react-apps/react-router-tutorial-master/lessons/06-params/modules/Repos.js",
+		"/home/dk/react-apps/react-router-tutorial-master/lessons/04-nested-routes/index.js",
+		"/home/dk/react-apps/react-router-tutorial-master/lessons/05-active-links/modules/App.js",
+		"/home/dk/react-apps/react-router-tutorial-master/lessons/02-rendering-a-route/modules/Repos.js",
+		"/home/dk/react-apps/react-demo-master/todoMvc/todoMvc-4stepmy/package.json",
+		"/home/dk/react-apps/react-demo-master/todoMvc/todoMvc-4step (我的)/src/components/TodoMain.js",
+		"/home/dk/react-apps/react-demo-master/todoMvc/todoMvc-4step (我的)/src/components/TodoHeader.js",
+		"/home/dk/react-apps/react-demo-master/todoMvc/todoMvc-4step (我的)/src/components/TodoFooter.js",
+		"/home/dk/react-demos-master/demo07/index.html",
+		"/home/dk/react-apps/react-demo-master/todoMvc/my-todoMvc/index.html",
+		"/home/dk/react-apps/react-demo-master/todoMvc/my-todoMvc/src/entry.js",
+		"/home/dk/react-apps/react-demo-master/todoMvc/my-todoMvc/src/styles/main.scss",
+		"/home/dk/react-apps/react-demo-master/todoMvc/my-todoMvc/webpack.config.js",
+		"/home/dk/react-apps/react-demo-master/todoMvc/my-todoMvc/src/components/app.js",
+		"/home/dk/react-apps/React-Study-master/step-01/src/App.js",
+		"/home/dk/mysite/blog/templates/blog/base.html",
+		"/home/dk/mysite/blog/static/blog/js/javascript.js",
+		"/home/dk/mysite/blog/static/blog/js/my_jquery_functions.js",
+		"/home/dk/react-test/app/Greeter.js",
+		"/home/dk/react-apps/staff/build/index.html",
+		"/home/dk/react-apps/staff/app/index.tmpl.html",
+		"/home/dk/react-test/app/Greeter.css",
+		"/home/dk/StaffManage-master/src/StaffItemPanel.js",
+		"/home/dk/StaffManage-master/src/ManageSystem.js",
+		"/home/dk/StaffManage-master/build/style.css",
+		"/home/dk/react-apps/react-demo-master/todoMvc/my-todoMvc/package.json",
+		"/home/dk/react-apps/react-demo-master/todoMvc/my-todoMvc/src/styles/main.sass",
+		"/home/dk/myapp/webpack.config.js",
+		"/home/dk/react-test/package.json",
+		"/home/dk/react-test/webpack.config.js",
+		"/home/dk/react-test/app/main.js",
+		"/home/dk/react/webpack.config.js",
+		"/home/dk/react/app/Greeter.js",
+		"/home/dk/mysite/blog/static/blog/css/css.scss",
+		"/home/dk/mysite/blog/templates/blog/index.html",
+		"/home/dk/mysite/blog/templates/blog/detail.html",
+		"/home/dk/mysite/blog/views.py",
+		"/home/dk/mysite/blog/static/blog/js/jsx/myjsx.js",
+		"/home/dk/nodejs/test.js",
+		"/home/dk/nodejs/route/server.js",
+		"/home/dk/nodejs/route/router.js",
+		"/home/dk/nodejs/express/express_demo.js",
+		"/home/dk/nodejs/express/express_cookie.js",
+		"/home/dk/nodejs/ejs/index.ejs",
+		"/home/dk/nodejs/ejs/test.html",
+		"/home/dk/nodejs/myapp/app.js",
+		"/home/dk/nodejs/myapp/public/stylesheets/style.less",
+		"/home/dk/nodejs/myapp/routes/index.js",
+		"/home/dk/nodejs/server.js",
+		"/home/dk/nodejs/express/index.htm",
+		"/home/dk/nodejs/myapp/public/stylesheets/style.css",
+		"/home/dk/nodejs/route/index.js",
+		"/home/dk/nodejs/hellowworld.js",
+		"/home/dk/nodejs/route",
+		"/home/dk/mysite/mysite/urls.py",
+		"/home/dk/桌面/图片懒加载.html",
+		"/home/dk/mysite/blog/static/blog/js/myjs.js",
+		"/home/dk/桌面/无标题文档",
+		"/home/dk/WebFrontEnd/task2_17柱状图/task.js",
+		"/home/dk/WebFrontEnd/task2_17柱状图/style.css",
+		"/home/dk/WebFrontEnd/task2_17柱状图/task2_17.html",
+		"/home/dk/桌面/test/test.html",
+		"/home/dk/mysite/weather/static/weather/css/style.css",
+		"/home/dk/桌面/highcharts.html",
+		"/home/dk/Highcharts-5.0.6/examples/3d-column-interactive/index.htm",
+		"/home/dk/桌面/test/html.html",
+		"/home/dk/mysite/mysite/settings.py",
+		"/home/dk/mysite/danima/templates/danima.html",
+		"/home/dk/mysite/weather/templates/weather/weather.html",
+		"/home/dk/mysite/danima/urls.py",
+		"/home/dk/mysite/weather/urls.py",
+		"/home/dk/mysite/danima/views.py",
+		"/home/dk/mysite/weather/views.py",
+		"/home/dk/react-demos/demo01/index.html",
+		"/home/dk/mysite/static/danima/css/style.scss",
+		"/home/dk/mysite/static/danima/css/style.css",
+		"/home/dk/mysite/calendar/calendar.html",
+		"/home/dk/mysite/bees/bees.html",
+		"/home/dk/桌面/test/javascript.js",
+		"/home/dk/桌面/WebFrontEnd/html 轮播图jquery插件/html.html",
+		"/home/dk/桌面/WebFrontEnd/html 轮播图jquery插件/slideShow.js",
+		"/home/dk/mysite/blog/urls.py",
+		"/home/dk/桌面/WebFrontEnd/html 轮播图jquery插件/mycss.css",
+		"/home/dk/桌面/WebFrontEnd/html 轮播图jquery插件/main.js"
+	],
+	"find":
+	{
+		"height": 41.0
+	},
+	"find_in_files":
+	{
+		"height": 102.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"addtodos",
+			"center",
+			"top",
+			"center",
+			"top",
+			"newTodo",
+			"props",
+			"succsess",
+			"Component",
+			"220",
+			"searchStaff",
+			".bind(this)",
+			"NODE",
+			"ajax",
+			"article",
+			"tran",
+			"cl.zondem.com"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": false,
+		"use_buffer2": false,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/dk/react-apps/memos-master/app/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 363,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								183,
+								183
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/dk/react-apps/memos-master/app/routes/AllMemosRoute.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1880,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								843,
+								843
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JSX/JSX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 225.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/dk/react-apps/memos-master/app/components/Header/index.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3538,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1611,
+								1611
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JSX/JSX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1138.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/dk/react-apps/antd-demo/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 649,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								390,
+								390
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/dk/react-apps/antd-demo/dist/index.css",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 108167,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/dk/react-apps/memos-master/app/main.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 999,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								748,
+								748
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JSX/JSX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 150.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/home/dk/react-apps/memos-master/app/components/Navigation/index.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1375,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								110,
+								110
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JSX/JSX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 75.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/home/dk/react-apps/memos-master/webpack.config.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1216,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								988,
+								988
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 225.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/home/dk/react-apps/redux-master/examples/counter/src/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 508,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								471,
+								471
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JSX/JSX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/home/dk/react-apps/redux-master/examples/counter/src/components/Counter.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1000,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JSX/JSX.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 75.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 33.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "nodejs.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 269.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

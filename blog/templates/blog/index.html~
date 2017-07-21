@@ -1,0 +1,46 @@
+{% extends "blog/base.html" %}
+{% load staticfiles %}
+{% load markdown_deux_tags %}
+{% block title %} DK的博客 {% endblock %}
+{% block content %}
+	<div class="row">
+		
+	
+
+		{% if username %}
+			{% if blog_list %}
+			    
+			    
+				    {% for blog in blog_list %}
+				    	
+						   <div class="content">
+						   	<br />
+						   	{% if blog.blog_img %}
+						   		<a class="float-left" href="{% url 'detail' blog.id %}"><img class="img-responsive" src="/media/{{blog.blog_img}}" alt='' /></a>
+							 	{% endif %}
+							 	<a class="text-left" href="{% url 'detail' blog.id %}" target="_blank">{{ blog.blog_title}} </a>  
+								
+								</div> 
+				    
+				   	
+				    {% endfor %}
+			    
+			{% else %}
+			    <p>No blog are available.</p>
+			{% endif %}	
+		{% else %}
+			<h3 class="text-center">请先登陆！</h3>
+		{% endif %}
+		
+		 
+		</div>
+		
+
+
+		
+
+		
+		
+
+{% endblock %}
+

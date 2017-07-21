@@ -1,0 +1,13 @@
+{% extends "blog/base.html" %}
+
+{% block title %} 添加新博文{% endblock %}
+{% block content %}
+<center>
+		<form method='post' enctype="multipart/form-data">
+			<table>
+			{{bf.as_table}}
+			</table>
+			<input type="submit"  value="发表"/>
+		</form>	
+<center>
+{% endblock %}

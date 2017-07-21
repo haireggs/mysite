@@ -1,0 +1,13 @@
+{% load staticfiles %}
+<div class="grid">			    	
+	<div class="content grid-item">
+	   	<br />
+
+	   	{% if blog.blog_img %}
+	   		<a class="float-left" href="{% url 'detail' blog.id %}"><img class="img-responsive" src="/media/{{blog.blog_img}}" alt='' /></a>
+		{% endif %}
+		
+		<a class="text-left" href="{% url 'detail' blog.id %}" >{{ blog.blog_title}} </a>  
+			
+	</div> 
+</div>

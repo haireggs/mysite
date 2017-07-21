@@ -1,0 +1,22 @@
+{% load staticfiles %}	
+
+	<div class="grid-sizer"></div>
+  	
+	{% for blog in blog_list %}
+				    	
+		   <div class="grid-item" onselectstart='return false'>
+		   	{% if blog.blog_img %}
+		   		<div><img class="img-responsive" src="/media/{{blog.blog_img}}" alt='' /></div>
+			 	{% endif %}
+			 	<div>{{ blog.blog_title}} </div>
+			 	<a href="{% url 'detail' blog.id %}"></a>
+				
+			</div> 
+    
+   	
+    {% endfor %}
+		
+	</div> 
+	
+
+

@@ -1,0 +1,75 @@
+*{
+margin:0px;
+padding:0px;
+}
+
+.center
+{
+	margin-left:auto;
+	margin-right:auto;
+	width:70%;
+}
+.right
+{
+	float:right
+}
+p {text-indent:2em;}
+
+
+body
+		{
+		font-family:Verdana, Arial, '宋体';
+		font-size:14px;
+		}
+
+a:link {text-decoration:none;}
+a:hover {text-decoration:underline;}
+a:visited {color:blue;}
+a {color:black;}
+/*body{
+	background:white url("images/background.jpg")no-repeat left top;
+}*/
+li{list-style-type:none}
+#navfirst
+		{
+			height:5px;
+			margin:15px;
+			padding:5px;
+		}
+
+#navfirst li
+		{
+			float:left;
+			width: 100px;
+			list-style-type : square
+			
+		}
+#praise
+{
+	float:right
+}
+#navsecond
+{
+	border:gray solid thin;
+	margin:20px;
+	padding:20px;
+}
+#blog
+{	
+	margin:20px;
+	padding:20px;
+	width:300px;
+	position:absolute;
+	left:0px;
+	border-right:#E8E8E8 solid  2px;
+}
+#comment
+{	
+	margin:20px;
+	padding:20px;
+	width:200px;
+	position:absolute;
+	left:340px;
+	top:20px;
+}
+

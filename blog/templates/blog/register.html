@@ -1,0 +1,23 @@
+{% extends "blog/base.html" %}
+{% load markdown_deux_tags %}
+{% block title %} register{% endblock %}
+{% block content %}
+		
+			<center>
+			<h3  class="title">注册页面:</h3>
+			<form method='post'>
+			<div class="form-group">
+			 {% csrf_token %} 
+			<table>
+			{{errors}}{{uf.as_table}}
+			</table>
+			<br />
+			<input type="submit" class="btn-default" value="ok"/>
+			</div>
+			</form>
+			</center>
+
+{% endblock %}
+
+
+

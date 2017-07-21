@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load staticfiles %}
+	{% load markdown_deux_tags %}
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="renderer" content="webkit">
+		
+		<link rel="stylesheet" href="{% static 'blog/css/bootstrap.css' %}">  
+		<link rel="stylesheet" href="{% static 'blog/css/custom.css' %}">  
+		
+		<script type="text/javascript" src="{% static 'blog/js/jquery.js' %}"></script>	
+   		<script type="text/javascript" src="{% static 'blog/js/bootstrap.js' %}"></script>
+   		<script type="text/javascript" src="{% static 'blog/js/my_jquery_functions.js' %}"></script>
+
+		<title>
+        {% block title %}{% endblock %}        
+        </title>
+</head>
+<body>
+	
+	
+
+	
+<div class="container">	
+	<div class="row">
+		
+			<ul class="nav nav-pills navbar-fixed-top">
+				<li class="">
+					<a class="rip" href='{% url 'index' %}'>首页</a>
+				</li>
+				<li>
+					<a class="rip" href='/admin/'>管理</a>
+				</li>
+				
+				
+				<li class="dropdown pull-right">
+					{% if username %}
+						<a class="dropdown-toggle rip" data-toggle="dropdown" href="#">{{username}}</a>
+						
+					
+					<ul class="dropdown-menu">
+						<li>
+							<a href='{% url 'new_blog' %}'>新博文</a>
+						</li>
+						<li class="divider">
+						</li>
+						<li>
+							<a href='{% url 'logout' %}'>登出</a>
+						</li>
+					
+					
+					</ul>
+						{% else %}	
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">点击登录</a>
+						<ul class="dropdown-menu">
+						<li>
+							<a href='{% url 'login' %}'>登陆</a>
+						</li>				
+						<li>
+					<!--	<a href='{% url 'register' %}'>注册</a> -->
+							
+						</li>
+							
+					</ul>
+							
+					{% endif %}
+				</li>
+			</ul>
+		
+	</div>
+		<br />
+		<br />
+
+    	
+	
+		<br>
+    {% block content %}	
+    {% endblock %}
+   
+    
+    
+    {% block footer %}
+     <div class="row">
+     <br />
+     <br />
+		<p class="text-center"><a  href="http://www.miitbeian.gov.cn/">蜀ICP备16001975号-1</a></p>
+		</div>
+    {% endblock %}
+   </div>
+
+</body>
+</html>

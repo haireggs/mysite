@@ -1,0 +1,9 @@
+{% extends "blog/base.html" %}
+{% load markdown_deux_tags %}
+{% block title %} 添加新博文{% endblock %}
+{% block content %}
+
+			<h3 class="title">恭喜{{username}},成功！</h3>
+{% endblock %}
+
+

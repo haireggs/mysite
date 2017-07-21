@@ -1,0 +1,21 @@
+{% extends "blog/base.html" %}
+{% load markdown_deux_tags %}
+{% block title %}登陆{% endblock %}
+{% block content %}
+ 		<center>
+		<h3 class="title">登陆页面:</h3>
+		<form method='post' role="form">
+		<div class="form-group">
+		 {% csrf_token %}
+		<table>
+		{{uf}}
+		</table>
+		</div>
+		<input type="submit"  class="btn-default" value="ok"/>
+		</form>
+		</center>
+
+{% endblock %}
+
+
+

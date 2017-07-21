@@ -1,0 +1,54 @@
+{% extends "blog/base.html" %}
+{% load staticfiles %}
+{% load markdown_deux_tags %}
+{% block title %} DK's site {% endblock %}
+{% block content %}
+	<div class=outerContainer>
+		
+			{% if blog_list %}
+			
+				<div class="dkContainer" >
+			    	<div class="grid-sizer"></div>
+				   {% for blog in blog_list %}
+				    	
+						  <div class="grid-item" onselectstart='return false'>
+						   	{% if blog.blog_img %}
+						   		<div ><img class="img-responsive" src="/media/{{blog.blog_img}}" alt='' /></div>
+							 	{% endif %}
+							 	<div>{{ blog.blog_title}} </div>
+							 	<a href="{% url 'detail' blog.id %}"></a>
+								
+							</div> 
+				    
+				   	
+				    {% endfor %}
+
+
+			    </div>
+
+			    <div id="navigation" class="navigation">
+			    	<a href="/blog/next?page=1"></a>	    
+			    </div>
+			    <!--<button class="btn" id="btn">ajax</button>-->
+			
+			    
+			   
+			{% else %}
+			    <p>No blog is available.</p>
+			{% endif %}
+
+		
+		
+		
+	</div>
+		
+		
+
+
+		
+
+		
+		
+
+{% endblock %}
+
