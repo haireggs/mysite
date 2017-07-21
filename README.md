@@ -12,4 +12,19 @@ Ubuntu14.04 + python2.7 + django + MySQL + Apache2.4，部署于阿里云服务�
 
 [打尼玛小游戏(danima)](http://120.25.74.236/danima)前端部分由纯Javascript + css 完成。
 
+#4 使用方法
+
+#5 通过Django自带server运行：
+
+修改 mysite/mysite/settings.py 中的 DEBUG 为 TRUE
+
+cd 到根目录
+
+`python manage.py runserver 8080`
+
+浏览器打开[http://127.0.0.1:8080/](http://127.0.0.1:8080/)
+
+#5 通过Apache运行：
+
+参考[apache设置]()
 
